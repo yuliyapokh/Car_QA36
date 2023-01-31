@@ -1,0 +1,30 @@
+22:39:18.787  INFO  manager.ApplicationManager - All tests start in Chrome Browser
+22:39:22.781  INFO  tests.TestBase - The name of the starts method is --->registrationSuccess
+22:39:22.782  INFO  manager.ListenerWD - Before find elements --> By.xpath: //a[text()=' Logout ']
+22:39:27.820  INFO  manager.ListenerWD - After find elements --> By.xpath: //a[text()=' Logout ']
+22:39:27.823  INFO  manager.ListenerWD - List suze is --> 0
+22:39:27.825  INFO  tests.TestBase - Registration with valid data
+22:39:27.829  INFO  manager.ListenerWD - Before find element --> By.xpath: //a[text()=' Sign up ']
+22:39:27.859  INFO  manager.ListenerWD - After find element --> By.xpath: //a[text()=' Sign up ']
+22:39:28.587  INFO  manager.ListenerWD - Before find element --> By.id: name
+22:39:28.956  INFO  manager.ListenerWD - After find element --> By.id: name
+22:39:29.560  INFO  manager.ListenerWD - Before find element --> By.id: lastName
+22:39:29.584  INFO  manager.ListenerWD - After find element --> By.id: lastName
+22:39:29.688  INFO  manager.ListenerWD - Before find element --> By.id: email
+22:39:29.706  INFO  manager.ListenerWD - After find element --> By.id: email
+22:39:31.719  INFO  manager.ListenerWD - Before find element --> By.id: password
+22:39:31.754  INFO  manager.ListenerWD - After find element --> By.id: password
+22:39:33.493  INFO  manager.ListenerWD - Before find element --> By.id: terms-of-use
+22:39:33.524  INFO  manager.ListenerWD - After find element --> By.id: terms-of-use
+22:39:33.541  INFO  manager.ListenerWD - Before find element --> By.cssSelector: .checkbox-container
+22:39:33.558  INFO  manager.ListenerWD - After find element --> By.cssSelector: .checkbox-container
+22:39:34.087  INFO  manager.ListenerWD - Before find element --> By.xpath: //button[@type='submit']
+22:39:34.161  INFO  manager.ListenerWD - After find element --> By.xpath: //button[@type='submit']
+22:39:34.492  INFO  manager.ListenerWD - Before find element --> By.cssSelector: div.dialog-container>h2
+22:39:35.991  INFO  manager.ListenerWD - After find element --> By.cssSelector: div.dialog-container>h2
+22:39:36.016  INFO  tests.TestBase - Test success
+22:39:36.018  INFO  manager.ListenerWD - Before find elements --> By.xpath: //button[text()='Ok']
+22:39:36.042  INFO  manager.ListenerWD - After find elements --> By.xpath: //button[text()='Ok']
+22:39:36.042  INFO  manager.ListenerWD - List suze is --> 1
+22:39:36.042  INFO  manager.ListenerWD - Before find element --> By.xpath: //button[text()='Ok']
+22:39:36.059  INFO  manager.ListenerWD - After find element --> By.xpath: //button[text()='Ok']
