@@ -1,5 +1,6 @@
 package tests;
 
+import manager.DataProviderUser;
 import manager.ListenerTNG;
 import model.User;
 import org.testng.Assert;
@@ -22,6 +23,33 @@ public class LoginTests extends TestBase{
 
     }
 
+
+    @Test(dataProvider = "loginDataUser",dataProviderClass = DataProviderUser.class)
+    public void loginSuccessUser(User user){
+
+        app.getHelperUser().openFormLogin();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submit();
+        Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
+        logger.info("Test success");
+    }
+
+    @Test(dataProvider = "loginDataFile",dataProviderClass = DataProviderUser.class)
+    public void loginSuccessFile(User user){
+
+        app.getHelperUser().openFormLogin();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submit();
+        Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
+        logger.info("Test success");
+    }
+
+
+/////////////////////////
+
+
+
+
     @Test
     public void loginSuccess(){
         logger.info("Login with valid data: email 'pokh@i2.ua'  & password 'Yyp12345!'");
@@ -32,8 +60,7 @@ public class LoginTests extends TestBase{
         logger.info("Test success");
     }
     @Test
-    public void loginSuccessModel(){
-        User user=new User().withEmail("pokh@i2.ua").withPassword("Yyp12345!");
+    public void loginSuccessModel(User user){
 
         app.getHelperUser().openFormLogin();
         app.getHelperUser().fillLoginForm(user);
@@ -43,10 +70,9 @@ public class LoginTests extends TestBase{
     }
 
     @Test
-    public void loginWrongEmail(){
+    public void loginWrongEmail(User user){
         logger.info("Login with invalid data: email 'pokhi2.ua'  & password 'Yyp12345!'");
 
-        User user=new User().withEmail("pokhi2.ua").withPassword("Yyp12345!");
 
         app.getHelperUser().openFormLogin();
         app.getHelperUser().fillLoginForm(user);
@@ -56,8 +82,8 @@ public class LoginTests extends TestBase{
         logger.info("Wrong email!!");
     }
     @Test
-    public void loginWrongPassword(){
-        User user=new User().withEmail("pokh@i2.ua").withPassword("12345");
+    public void loginWrongPassword(User user){
+
 
         logger.info("Login with invalid data: email 'pokh@i2.ua'  & password '12345'");
 

@@ -1,5 +1,6 @@
 package tests;
 
+import manager.DataProviderUser;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -19,12 +20,41 @@ public class RegistrationTests extends TestBase{
         }
 
     }
-    @Test
-    public void registrationSuccess(){
+
+
+    @Test (dataProvider = "registrationDataUser", dataProviderClass = DataProviderUser.class)
+    public void registrationUser(User user){
         logger.info("Registration with valid data");
-        Random random = new Random();
-        int i = random.nextInt(1000);
-        User user = new User().withName("Yuli").withLastName("Pokh").withEmail("yuli"+i+"@mail.com").withPassword("Juli12345$");
+
+        app.getHelperUser().openRegistrationForm();
+        app.getHelperUser().fillRegistrationForm(user);
+        app.getHelperUser().checkPolicy();
+        app.getHelperUser().submit();
+        Assert.assertEquals(app.getHelperUser().getMessage(),"You are logged in success");
+        logger.info("Test success");
+    }
+
+    @Test(dataProvider ="registrationDataFile",dataProviderClass = DataProviderUser.class)
+    public void registrationFile(User user){
+        logger.info("Registration with valid data");
+
+        app.getHelperUser().openRegistrationForm();
+        app.getHelperUser().fillRegistrationForm(user);
+        app.getHelperUser().checkPolicy();
+        app.getHelperUser().submit();
+        Assert.assertEquals(app.getHelperUser().getMessage(),"You are logged in success");
+        logger.info("Test success");
+    }
+    
+
+    ///////////////////////
+
+    @Test
+    public void registrationSuccess(User user){
+        logger.info("Registration with valid data");
+       // Random random = new Random();
+       // int i = random.nextInt(1000);
+       // User user = new User().withName("Yuli").withLastName("Pokh").withEmail("yuli"+i+"@mail.com").withPassword("Juli12345$");
 
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
@@ -34,11 +64,9 @@ public class RegistrationTests extends TestBase{
         logger.info("Test success");
     }
     @Test
-    public void registrationWrongEmail(){
+    public void registrationWrongEmail(User user){
 
-        logger.info("Registration with invalid data: name 'Yuli', lastname 'Pokh,  email'yulimail.com', pass 'Juli12345$'");
-
-        User user = new User().withName("Yuli").withLastName("Pokh").withEmail("yulimail.com").withPassword("Juli12345$");
+        logger.info("Registration with invalid data");
 
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
@@ -49,10 +77,9 @@ public class RegistrationTests extends TestBase{
         logger.info("wrong email");
     }
     @Test
-    public void registrationWrongPassword(){
-        logger.info("Registration with invalid data: name 'Yuli', lastname 'Pokh,  email'yuli@mail.com', pass 'Ju'");
+    public void registrationWrongPassword(User user){
+        logger.info("Registration with invalid data");
 
-        User user = new User().withName("Yuli").withLastName("Pokh").withEmail("yuli@mail.com").withPassword("Ju");
 
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
