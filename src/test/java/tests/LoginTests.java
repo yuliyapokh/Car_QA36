@@ -50,7 +50,7 @@ public class LoginTests extends TestBase{
 
 
 
-    @Test
+    @Test(groups = {"smoke"})
     public void loginSuccess(){
         logger.info("Login with valid data: email 'pokh@i2.ua'  & password 'Yyp12345!'");
         app.getHelperUser().openFormLogin();

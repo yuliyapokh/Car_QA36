@@ -45,7 +45,7 @@ public class RegistrationTests extends TestBase{
         Assert.assertEquals(app.getHelperUser().getMessage(),"You are logged in success");
         logger.info("Test success");
     }
-    
+
 
     ///////////////////////
 
